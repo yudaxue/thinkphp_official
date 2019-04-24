@@ -1090,7 +1090,7 @@ function U($url = '', $vars = '', $suffix = true, $domain = false)
                 }
             }
             if (isset($var[$varModule])) {
-                $module = defined('BIND_MODULE') && BIND_MODULE == $module ? '' : $var[$varModule];
+                $module = defined('BIND_MODULE') && BIND_MODULE == $var[$varModule] ? '' : $var[$varModule];
                 unset($var[$varModule]);
             }
 
@@ -1749,7 +1749,7 @@ function think_filter(&$value)
     // TODO 其他安全过滤
 
     // 过滤查询特殊字符
-    if (preg_match('/^(EXP|NEQ|GT|EGT|LT|ELT|OR|XOR|LIKE|NOTLIKE|NOT BETWEEN|NOTBETWEEN|BETWEEN|NOTIN|NOT IN|IN)$/i', $value)) {
+    if (preg_match('/^(EXP|NEQ|GT|EGT|LT|ELT|OR|XOR|LIKE|NOTLIKE|NOT BETWEEN|NOTBETWEEN|BETWEEN|NOTIN|NOT IN|IN|BIND)$/i', $value)) {
         $value .= ' ';
     }
 }
